@@ -167,7 +167,7 @@ myManageHook = manageDocks <+> (composeAll . concat $
 
 --Xmonad main loop, all comes together here!
 main = do
-    statusBar <- spawnPipe "/home/remco/programs/pybar/mybar2.py"
+    statusBar <- spawnPipe "~/programs/pybar/mybar2.py"
 
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig {
         borderWidth = myBorderWidth,
