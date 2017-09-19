@@ -1,9 +1,9 @@
 import sys
 from pybar import Widget
 
+
 class InputReader(Widget):
-    '''Simple widget that takes a Dzen2 formatted string as input, and draws
-    it on the bar.'''
+    '''Simple widget that reads and draws Dzen2 formatted strings.'''
 
     def setup(self):
         self.update()
@@ -16,4 +16,3 @@ class InputReader(Widget):
         while line:
             self.value(line.rstrip("\n"))
             line = sys.stdin.readline()
-
