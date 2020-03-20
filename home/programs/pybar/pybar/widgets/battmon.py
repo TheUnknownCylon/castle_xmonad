@@ -32,9 +32,13 @@ class BattMon(Widget):
 
         upower = system_bus.get_object(
             'org.freedesktop.UPower', '/org/freedesktop/UPower')
-        enumDevices = upower.get_dbus_method(
-            'EnumerateDevices', 'org.freedesktop.UPower')
-        for device in enumDevices():
+        devices = upower.get_dbus_method(
+            'EnumerateDevices', 'org.freedesktop.UPower')()
+
+        if len(devices) == 0:
+            return
+
+        for device in devices:
             if "BAT" in device:
                 ubat = system_bus.get_object(
                     'org.freedesktop.UPower', str(device))
